@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Домашня сторінка</title>
+</head>
+<body>
+<h1 th:text="${message}"></h1>
+<ul>
+    <li th:each="item : ${items}" th:text="${item}"></li>
+</ul>
+</body>
+</html>
