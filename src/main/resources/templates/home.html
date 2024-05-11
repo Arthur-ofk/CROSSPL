@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Домашня сторінка</title>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
 </head>
 <body>
-<h1 th:text="${message}"></h1>
-<ul>
-    <li th:each="item : ${items}" th:text="${item}"></li>
-</ul>
+<h1 th:text="#{dashboard.title}"></h1>
+
+<div th:text="${user.name}"></div>
+
+<div th:text="${capitalsOfTheWorld.Belgium}"></div>
+<div th:text="${capitalsOfTheWorld['The Netherlands']}"></div>
+
+<div th:text="${vehiclesList[0].name}"></div>
+
+<div th:object="${car}">
+    <p>Brand: <span th:text="*{brand}"></span></p>
+    <p>Type: <span th:text="*{type}"></span></p>
+    <p>Fuel: <span th:text="*{fuelType}"></span></p>
+    <p>Color: <span th:text="*{color}"></span></p>
+</div>
+
+<a th:href="@{https://www.google.com/search?q=thymeleaf}">Google Thymeleaf</a>
+<a th:href="@{/users}">Users</a>
+<a th:href="@{https://www.google.com/search(q=${searchTerm})}">Search</a>
+
+
+<div th:id="'container-' + ${index}"></div>
+<div th:id="|container-${index}|"></div>
+
+<span>The total price is [[${totalPrice}]]</span>
+
+<div th:text="${username}">Bob</div>
+
+<div th:if="${user.followerCount > 10}">You are famous</div>
+<div th:unless="${user.followerCount > 0}">You have no followers currently.</div>
+<div th:if="${user.followerCount > 0}">You have <span th:text="${user.followerCount}"></span> followers currently.</div>
+<div th:unless="${user.followerCount > 0}">You have no followers currently.</div>
+
+
 </body>
 </html>
